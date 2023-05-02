@@ -1,0 +1,9 @@
+- hosts: sv
+  tasks:
+  - name: Copy ip_list.txt file to remote machine
+    copy:
+      src: ip_list.txt
+      dest: /tmp/ip_list.txt
+  - name: Run ssh free pwd on every node 
+    # TODO() replace your passwd with the root passwd of remote machines
+    script: ./passwdless_login.sh /tmp/ip_list.txt your_passwd
